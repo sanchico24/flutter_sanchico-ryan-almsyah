@@ -1,82 +1,115 @@
-# 10. Dart Object Oriented Programming 1
+# 10. Dart Object Oriented Programming 2
 
-Name    : Sanchico Ryan Alamsyah
-Section : 10. Dart Object Oriented Programming 1
+
+Name    : Sanchico Ryan Almsyah
+Section : 11. Dart Object Oriented Programming 2
 
 ## Summary
-### Object Oriented Programming (OOP)
-- Program yang disusun dalam bentuk abstraksi object
-- Data dan proses diletakkan pada abstraksi tersebut
-- Keuntungan dari Object Oriented Programming (OOP) :
-    - Mudah di troubleshoot ketika terdapat masalah
-    - Mudah digunakan kembali atau digunakan ulang
-- Penggunaan OOP tidak hanya di dart melainkan di `C++`, `Java`, `Javascript`, `Python`, dll.
-- OOP memiliki beberapa bagian kompenen diantaranya :
-    - Class
-    - Object
-    - Property
-    - Method
-    - Inheritance
-    - Generics
 
-### Class
-- Merupakan abstraksi dari sebuah benda (object)
-- Memiliki ciri-ciri yang disebut property
-- Memiliki sifat dan kemampuan yang disebut method
-- Untuk membuat **Class**, dengan cara :
-    - Menggunakan kata kunci `class`
-    - Memiliki nama
-    - Detail class diletakkan dalam kurawal (`{}`)
-    ```
-    class Hewan {
+### Constructor
+- Method yang dijalankan saat pembuatan object
+- Dapat menerima parameter
+- Tidak memiliki return
+- Nama sama dengan nama class
+```
+Class Hewan {
+    var mata;
+    var kaki;
 
+    Hewan() {
+        mata = 0;
+        kaki = 0;
     }
-    ```
-- Untuk membuat sebuah object :
-    - Bentuk sebenarnya dari class
-    - Disebut juga `instance of class`
-    - Diperlakukan seperti data
-    ```
-    void main() {
-        var hewan = Hewan();
+}
+```
+
+### Inheritance
+- Bertujuan agar kemampuan class yang sudah ada dapat dimiliki oleh class baru
+- Membuat class baru dengan memanfaatkan class yang sudah ada
+- Untuk melakukan inheritance dapat dilakukan dengan menambah `extends` saat pembuatan class baru
+```
+class Kucing extends Hewan {
+    Kucing() {
+        mata = 2;
+        kaki = 4;
     }
+}
+```
+- Untuk penggunaannya sama seperti pembuatan object pada umumnya.
+
+### Method Overriding
+- Bertujuan agar class memiliki method yang sama, dengan proses yang berbeda
+- Dengan cara menulis ulang method yang ada pada super-class
+- untuk melakukan Overriding dapat dilakukan dengan cara:
+    - Dilakukan pada class yang melakukan inheritance
+    - Method sudah ada pada class induk
+    - Method ditulis ulang seperti membuat method baru pada class anak
+    - Ditambahkan tanda `@override` di baris sebelum membuat method dibuat
     ```
-### Property
-- Ciri-ciri suatu class
-- Hal-hal yang dimiliki suatu class
-- Memiliki sifat seperti variabel
-- Membuat Property (seperti variabel tetapi dalam sebuah class)
-    ```
-    class Hewan {
-        var mata = 0;
-        var kaki = 0;
-    }
-    ```        
-- Mengakses Property (seperti variabel tetapi dalam sebuah object)
-    ```
-    void main() {
-        var hewan = Hewan();
-        print(hewan.kaki);
-    }
-    ```
-### Method
-- Sifat suatu class
-- Aktivitas yang dapat dikerjakan suatu class
-- Memiliki sifat seperti fungsi
-- Membuat Method (seperti fungsi tetapi dalam sebuah class)
-    ```
-    class Hewan {
-        void makan() {
-            print('Hewan sedang makan');
+    class Kucing extends Hewan {
+        @override
+        bernafas() {
+            print('Bernafas menggunakan paru-paru');
         }
     }
     ```
-- Menjalankan Method (seperti fungsi tetapi dalam sebuah object)
-    ```
-    void main() {
-        var hewan = Hewan();
-        hewan.makan();
+- Untuk penggunaannya sama seperti pembuatan object pada umumnya.
+
+### Interface
+- Berupa sebuah class
+- Yang menunjukkan method apa saja yang ada pada suatu class
+- Seluruh method wajib di-override
+- Digunakan dengan menggunakan implements
+- Untuk menggunakan interface pada class yang melakukan implements wajib melakukan override semu method yang ada pada class induk
+- Untuk penggunaannya sama seperti pembuatan object pada umumnya.
+
+### Abstract Class
+- Berupa class abstrak
+- Menunjukkan method apa saja yang ada pada suatu class
+- Digunakan dengan menggunakan extends
+- Tidak dapat dibuat object
+- Tidak semua method harus di-override
+```
+abstract class Hewan {
+    void bernapas() {
+        print('tidak diketahui');
     }
+}
+```
+- Untuk penggunaannya sama seperti pembuatan object pada umumnya.
+
+### Polymorphism
+- Kemampuan data berubah menjadi bentuk lain
+- Tipe data yang dapat digunakan adalah super class
+- Dapat dilakukan pada class dengan extends atau implements
+- Untuk melakukan polymorphism, object dari class kucing dengan tipe data class Hewan.
+
+### Generics
+- Dapat digunakan pada class atau fungsi
+- Memberi kemampuan agar dapat menerima data dengan tipe yang berbeda
+- Tipe data yang diinginkan, ditentukan saat membuat class atau menjalankan fungsi
+- Untuk membuat class dengan Generics, sebuah class dapat dimasukkan data dengan tipe `T`, dan tipe T dapat digunakan di seluruh class
+```
+class Hadiah<T> {
+    var isi;
     
-
-
+    Hadiah(T i) {
+        isi = i;
+    }
+}
+```
+- Untuk menggunakan class dengan Generics, setelah nama class, menjadi tempat tipe data yang diinginkan
+```
+var hadiah1 = Hadiah<String>('mobil)
+print(hadiah1.isi);
+```
+- Untuk membuat fungsi dengan Generics, setelah nama fungsi, menjadi tempat variabel generics
+```
+void cektipe<T>(T data){
+    print(data.runtimeType);
+}
+```
+- Untuk menggunakan fungsi dengan Generics, seteleah nama fungsi, menjadi tempat tipe data yang diinginkan
+```
+cekTipe<String>('contoh string');
+```
