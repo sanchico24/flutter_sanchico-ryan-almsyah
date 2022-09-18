@@ -1,50 +1,32 @@
-# 11. Introduction Flutter Widget
+# 13. Platform Widget
 
-Name    : Sanchico Ryan Almsyah 
-Section : 12. Introduction Flutter Widget
-
+Name    : Sanchico Ryan Alamsyah
+Section : Platform Widget
 
 ## Summary
-### Perkenalan Flutter
-- Flutter merupakan alat pengembangan antarmuka pengguna yang digunakan untuk membuat aplikasi mobile, desktop, dan web.
-- Keunggulan dari flutter
-    - Mudah digunakan dan dipelajari
-    - Produktivitas tinggi
-    - Dokumentasi lengkap
-    - Komunitas yang berkembang
-- Bagian dari flutter
-     - SDK (Software Devolepment Kit) -> Alat-alat untuk membantu proses pengembangan aplikasi
-     - Framework -> Perlengkapan untuk membuat aplikasi yang dapat dikustomisasi.
-- Untuk membuat project dapat menjalankan perintah sebagai berikut
-```
-flutter create [project name]
-```
-- Untuk menjalankan projek dapat dilakukan dengan cara masuk ke direktori project dan jalankan perintah `flutter run`
-- Struktur Direktori terdiri dari
-    - Direktori platform -> android, ios, web, desktop.
-    - Direktori project -> lib (ruang kerja utama), test (aktivitas pengujian)
-- File utama yang pertama kali dibaca dan dijalankan terdapat dalam direktori `lib` bernama `main.dart` yang memiliki fungsi `main()` dan menjalankan aplikasi dengan fungsi `runApp`.
+Memanfaatkan widget dengan gaya berbeda pada Android & iOS.
+### MaterialApp
+- Widget dasar yang mengemas seluruh widget dalam aplikasi
+- Widget yang digunakan pada sistem Android
+- Di-import dari `package:flutter/material.dart`
+- Struktur
+    - Widget yang pertama kali dibuka, diletakkan pada bagian home.
+    - Mengatur halaman juga dapat dilakukan dengan menggunakan `routes` dan `initialRoute`.
 
-### Widget
-- Digunakan untuk membentuk antarmuka (UI)
-- Berupa class
-- Dapat terdiri dari beberapa widget lainnya
-- terdapat 2 jenis widget yaitu `Stateless` dan `Stateful`.
-- Stateless widget memiliki ciri sebagai berikut
-    - Tidak bergantung pada perubahan data
-    - Hanya fokus pada tampilan
-    - Dibuat dengan extends pada class StatelesWidget
-- Stateful widget memiliki ciri sebagai berikut
-    - Mementingkan pada perubahan data
-    - Dibuat dengan extends pada class StatefulWidget
-    - 1 widget menggunakan 2 class (widget dan state)
+**Scaffold**
+- Widget dasar untuk membangun sebuah halaman pada MaterialApp
+- Dengan struktur untuk membentuk tata letak dasar sebuah halaman yang ditulis melalui properti-properti.
 
-### Built in Widget
-- Widget yang dapat langsung digunakan
-- Sudah ter-install bersama flutter
-- Contohnya sebagai berikut
-    - MaterialApp -> membangun aplikasi dengan desain material
-    - Scaffold -> Membentuk sebuah halaman
-    - Appbar -> Membentuk application bar yang terletak pada bagian atas halaman.
-    - Text -> Menampilkan teks
+### CupertinoApp
+- Widget dasar yang mengemas seluruh widget dalam aplikasi
+- Widget yang digunakan pada sistem iOS
+- Di-import dari `package:flutter/cupertino.dart`
+- Struktur 
+    - Variabel `_themeDark` dibuat untuk menyimpan tema
+    - Diperlukan karena Cupertino **tidak menyediakan** `ThemeData.dark()` seperti pada Material
+    - Widget yang pertama kali dibuka, diletakkan pada bagian home.
+
+**CupertinoPageScaffold**
+- Widget dasar untuk membangun sebuah halaman pada CupertinoApp
+- Dengan struktur untuk membentuk tata letak dasar sebuah halaman yang ditulis melalui properti-properti.
 
